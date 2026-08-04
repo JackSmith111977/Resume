@@ -9,22 +9,25 @@
 
 1. [`README.md`](./README.md)：总体战略、当前风险和目录；
 2. [`00-strategy-and-positioning.md`](./00-strategy-and-positioning.md)：岗位边界、投入比例和停止清单；
-3. [`08-09-sprint-plan.md`](./08-09-sprint-plan.md)：当前阶段与周目标；
-4. [`execution/README.md`](./execution/README.md)：S/M/L 执行系统、WIP 和指标；
-5. [`execution/human-ai-collaboration.md`](./execution/human-ai-collaboration.md)：详细人机协作协议；
-6. 与本次任务直接相关的知识路线、项目、简历或反馈文件。
+3. [`schedule/README.md`](./schedule/README.md)：日程执行规则、深度层级和完成定义；
+4. [`schedule/calendar-2026-08-04-to-09-06.md`](./schedule/calendar-2026-08-04-to-09-06.md)：当前日期对应的具体任务；
+5. [`schedule/progress-ledger.md`](./schedule/progress-ledger.md)：当前 P0、DOING、到期复测和证据；
+6. [`execution/README.md`](./execution/README.md)：S/M/L 执行系统、WIP 和指标；
+7. [`execution/human-ai-collaboration.md`](./execution/human-ai-collaboration.md)：详细人机协作协议；
+8. 与本次任务直接相关的知识路线、项目、简历或反馈文件。
 
 发生冲突时，优先级为：
 
 ```text
 用户当前明确要求
 > AGENTS.md
+> 当前日期日程 + progress-ledger
 > v2 战略与执行文件
 > 专项知识路线
 > 历史概要文件
 ```
 
-`01`～`03` 历史文件仅作背景参考，不得覆盖 v2 路线。
+`01`～`03` 历史文件仅作背景参考，不得覆盖 v2 路线。`08-09-sprint-plan.md` 提供周级目标；具体执行以当前日期日程和总账为准。
 
 ## 2. 用户基线
 
@@ -318,7 +321,49 @@ AI 协助：
 无辅助复测：
 ```
 
-## 11. 禁止行为
+## 11. 日程、依赖和记录规则
+
+### 当前执行来源
+
+- 当前周期日程：[`schedule/calendar-2026-08-04-to-09-06.md`](./schedule/calendar-2026-08-04-to-09-06.md)；
+- 知识依赖：[`schedule/learning-sequence.md`](./schedule/learning-sequence.md)；
+- 当前状态：[`schedule/progress-ledger.md`](./schedule/progress-ledger.md)；
+- 每日记录模板：[`schedule/daily-log-template.md`](./schedule/daily-log-template.md)；
+- 周复盘模板：[`schedule/weekly-review-template.md`](./schedule/weekly-review-template.md)。
+
+### AI 安排当天任务时
+
+1. 使用 Asia/Shanghai 的当前日期定位日历；
+2. 先读取总账中的 `DUE`、`DOING` 和当前最多五个 P0；
+3. 询问或根据上下文判断当天容量：最低、标准或充足；
+4. 只选择一个主任务和最多一个轻任务；
+5. 先复制每日记录模板，再开始教学或实现；
+6. 结束时更新证据、状态、复测和下一步第一动作。
+
+### 知识顺序
+
+默认遵循：
+
+```text
+真实问题 / 具体样例
+→ 最小实现或可观察现象
+→ 关键机制和不变量
+→ 失败模式与相邻概念
+→ 抽象模型与方案取舍
+→ 新场景迁移与面试表达
+```
+
+若前置主题没有具体证据或未达到 `CAN_EXPLAIN`，AI 不得直接把后续抽象主题标记为掌握。可以进行 D1 探索，但必须显式记录前置缺口。
+
+### 日程变化
+
+- 未完成任务不得把整份日历自动整体顺延；
+- 应重新拆分任务，并在周复盘中决定继续、降级或删除；
+- 突发面试可替换可选任务，但到期复测和项目主链路不得连续取消两次；
+- 新增 P0 必须记录来源、证据以及替换或删除的旧任务；
+- AI 不得为了“全面”自行增加章节、技术栈或每日任务量。
+
+## 12. 禁止行为
 
 AI 不得：
 
@@ -330,4 +375,6 @@ AI 不得：
 - 同时开启多个大型主题，突破 WIP 限制；
 - 用学习时长、阅读数量或生成代码量代替能力证据；
 - 忽略真实笔试和面试反馈，机械执行原计划；
+- 跳过知识依赖，直接从术语清单进入高级抽象；
+- 把所有未完成任务视为欠债并整体顺延；
 - 重复询问仓库和现有文档中已经明确的信息。
