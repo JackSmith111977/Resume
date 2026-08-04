@@ -1,83 +1,131 @@
 # 秋招准备知识库
 
-> 创建日期：2026-08-03  
-> 目标岗位：AI Agent 应用开发、全栈开发、前端开发  
-> 学习场景：以工作日实习期间的碎片时间为主，不依赖周末集中学习
+> 版本：v2.2  
+> 基准日期：2026-08-03  
+> 当前日程起点：2026-08-04  
+> 目标岗位：AI Agent 应用开发、AI 应用全栈、前端开发  
+> 执行场景：工作日实习碎片时间为主，准备、投递、项目和复盘并行
 
-## 1. 求职定位
+> **AI 入口：**处理本目录任务前，必须先读取 [`AGENTS.md`](./AGENTS.md)。它定义用户基线、援助等级、协作模式、日程来源、完成标准和禁止行为。
 
-当前采用一条共享主干，而不是分别学习三套割裂的技术体系：
+## 1. 核心战略
+
+这不是一套“学完再投”的课程表，而是一套持续产生求职证据的作战系统：
 
 ```text
-算法与计算机基础
-→ 软件工程与独立编码
-→ 前端交互 + 后端业务
-→ AI Agent 工程化
-→ 项目、简历与面试证据
+岗位与投递反馈
+        ↓
+算法 / 计算机基础 / 工程能力
+        ↓
+可运行的 Agent 纵向切片
+        ↓
+简历、项目讲解与模拟面试
+        ↓
+真实笔试和面试反馈
+        └────────────→ 调整下一轮 P0
 ```
 
 岗位优先级：
 
-1. **AI Agent 应用开发**：主投方向；
-2. **全栈开发**：核心工程底座与重要投递方向；
-3. **前端开发**：已有相对优势，作为稳定投递方向。
+1. **AI Agent 应用 / AI 应用全栈**：主投方向；
+2. **全栈开发**：工程底座和重要投递方向；
+3. **前端开发 / AI 前端**：已有优势和稳定投递方向。
 
-详细决策见 [`00-strategy-and-positioning.md`](./00-strategy-and-positioning.md)。
+不等待九月再开始投递。准备、投递、项目建设和面试复盘从现在起并行。
 
-## 2. 当前能力基线
+## 2. 当前风险
 
-- 前端：相对熟悉，有 React / Next.js / Vue / TypeScript 项目实践；
-- 后端：有全栈和真实业务经验，但系统性、可靠性与原理表达需要补足；
-- Agent：了解应用概念，需要补运行时、RAG、评测、Trace 和安全；
-- 算法与手写代码：当前最大风险；
-- 算法主语言：**Python**；
-- 已刷约 200 道题，主要按照灵茶山艾府题单专题学习；
-- 主要问题：间隔重做中等题时依赖原题解记忆，尚未形成稳定的独立推导能力。
+- 算法已刷约 200 题，但无标签识别、独立推导和间隔复现不稳定；
+- 前端有项目经验，但长期依赖 AI Coding 后需要恢复独立手写和调试；
+- 后端有真实业务实践，但计算机基础、可靠性和原理表达不系统；
+- Agent 概念覆盖较多，但缺少可运行、可追踪、可评测的最小工程证据；
+- 当前简历尚未完整纳入美团实习，且部分结论和指标需要事实审计；
+- 原项目范围包含三语言、三服务、RAG、异步任务、Trace 和部署，四周内存在半成品风险；
+- AI 可以提高工程速度，但若不限制援助等级，会掩盖算法、手写、系统判断和面试表达的真实缺口；
+- 知识地图如果没有依赖、日期、记录和复测，只会形成“看起来全面”的待办堆积。
 
-## 3. 当前时间分配
+## 3. 当前投入比例
 
-| 方向 | 初始权重 | 阶段目标 |
+在 Week 0 诊断结束前使用以下临时权重：
+
+| 流水线 | 权重 | 目标 |
 | --- | ---: | --- |
-| 算法与独立编码 | 50% | 无标签识别、独立推导和 Python 实现 |
-| 后端核心链路 | 25% | API、数据、异步、幂等、重试和可观测性 |
-| Agent 底层机制 | 20% | 手写可恢复、可追踪、可评测的最小 Agent |
-| 前端维护 | 5% | 保持优势并补 AI 原生交互能力 |
+| 算法与独立编码 | 35% | 无标签识别、Python 实现、ACM 输入输出和间隔复现 |
+| Agent 项目与原理 | 25% | 单一后端栈完成 Tool + RAG + Trace + Eval 闭环 |
+| 后端与计算机基础 | 20% | 网络、操作系统、数据库、请求链路和可靠性 |
+| 简历、投递与面试 | 10% | 美团经历、双版本简历、持续投递和反馈闭环 |
+| 前端维护 | 10% | JS/TS 手写、组件状态、性能和 AI 原生交互 |
 
-算法达到基础门槛后，把更多时间转移到 Agent 项目、后端系统设计和面试表达。
+Week 0 后按真实断点调整，不长期锁死固定比例。
 
 ## 4. 仓库导航
 
-### 战略与阶段路线
+### AI 协作入口
 
-- [`00-strategy-and-positioning.md`](./00-strategy-and-positioning.md)：岗位选择、技术栈职责和投入边界；
-- [`08-09-sprint-plan.md`](./08-09-sprint-plan.md)：8 月到 9 月初的工作日碎片化冲刺计划；
-- [`knowledge-framework/learning-roadmap-v1.md`](./knowledge-framework/learning-roadmap-v1.md)：从诊断到投递的阶段路线。
+- [`AGENTS.md`](./AGENTS.md)：供 AI 优先读取的强制协作、日程和权限规则；
+- [`execution/human-ai-collaboration.md`](./execution/human-ai-collaboration.md)：面向人的详细协作手册；
+- [`execution/task-template.md`](./execution/task-template.md)：通用 S/M/L 任务契约、援助记录、验收和复测模板。
 
-### 详细知识框架
+### 日程与记录入口
 
-- [`knowledge-framework/README.md`](./knowledge-framework/README.md)：知识树和 L1～L4 掌握等级；
-- [`knowledge-framework/shared-foundation.md`](./knowledge-framework/shared-foundation.md)：算法、网络、操作系统、数据库与软件工程；
-- [`knowledge-framework/frontend.md`](./knowledge-framework/frontend.md)：前端核心、工程化与 AI 原生交互；
-- [`knowledge-framework/backend.md`](./knowledge-framework/backend.md)：Java、Spring、数据、异步任务和可靠性；
-- [`knowledge-framework/ai-agent.md`](./knowledge-framework/ai-agent.md)：Agent Loop、Tool、RAG、MCP、Evaluation 和安全；
-- [`knowledge-framework/project-and-interview.md`](./knowledge-framework/project-and-interview.md)：项目、简历和三岗位面试闭环。
+- [`schedule/README.md`](./schedule/README.md)：日程执行方式、深度层级和完成定义；
+- [`schedule/learning-sequence.md`](./schedule/learning-sequence.md)：算法、CS、后端、Agent、前端和求职知识依赖；
+- [`schedule/calendar-2026-08-04-to-09-06.md`](./schedule/calendar-2026-08-04-to-09-06.md)：从 8 月 4 日到 9 月 6 日的逐日任务；
+- [`schedule/progress-ledger.md`](./schedule/progress-ledger.md)：当前 P0、任务看板、能力深度、复测和证据总账；
+- [`schedule/daily-log-template.md`](./schedule/daily-log-template.md)：每日可执行记录模板；
+- [`schedule/weekly-review-template.md`](./schedule/weekly-review-template.md)：周指标、范围删除、反馈和下周 P0 模板。
+
+### 战略与四条流水线
+
+- [`00-strategy-and-positioning.md`](./00-strategy-and-positioning.md)：岗位边界、技术栈职责和停止清单；
+- [`08-09-sprint-plan.md`](./08-09-sprint-plan.md)：8 月至 9 月初的并行冲刺周目标；
+- [`application-pipeline.md`](./application-pipeline.md)：岗位收集、投递、状态和周指标；
+- [`resume-strategy.md`](./resume-strategy.md)：美团经历、双版本简历和事实审计；
+- [`interview-feedback-loop.md`](./interview-feedback-loop.md)：笔试、面试反馈如何反哺学习路线。
+
+### 知识框架
+
+- [`knowledge-framework/README.md`](./knowledge-framework/README.md)：知识树与 L1～L4 掌握等级；
+- [`knowledge-framework/shared-foundation.md`](./knowledge-framework/shared-foundation.md)：算法、网络、操作系统、数据库、Linux 和软件工程；
+- [`knowledge-framework/frontend.md`](./knowledge-framework/frontend.md)：JS/TS、浏览器、框架、工程化和 AI UI；
+- [`knowledge-framework/backend.md`](./knowledge-framework/backend.md)：Java、Spring、数据、异步与可靠性；
+- [`knowledge-framework/ai-agent.md`](./knowledge-framework/ai-agent.md)：模型基础、Agent Runtime、RAG、框架、评测和安全；
+- [`knowledge-framework/project-and-interview.md`](./knowledge-framework/project-and-interview.md)：收缩后的项目 MVP 与三岗位叙事；
+- [`knowledge-framework/learning-roadmap-v1.md`](./knowledge-framework/learning-roadmap-v1.md)：从诊断到反馈驱动补洞的阶段路线。
 
 ### 执行与复盘
 
-- [`execution/README.md`](./execution/README.md)：工作日 S/M/L 任务系统、AI 使用边界和周指标；
-- [`execution/week-0-baseline-2026-08-03.md`](./execution/week-0-baseline-2026-08-03.md)：第一周能力诊断看板；
-- [`04-algorithm-training-system.md`](./04-algorithm-training-system.md)：针对模式识别和题解记忆的算法训练体系；
-- [`05-diagnosis-and-review-templates.md`](./05-diagnosis-and-review-templates.md)：单题、混合诊断与周复盘模板。
+- [`execution/README.md`](./execution/README.md)：工作日 S/M/L 任务系统；
+- [`execution/week-0-baseline-2026-08-03.md`](./execution/week-0-baseline-2026-08-03.md)：第一周诊断和投递入口任务；
+- [`04-algorithm-training-system.md`](./04-algorithm-training-system.md)：无标签、限时、间隔复现和模拟笔试体系；
+- [`05-diagnosis-and-review-templates.md`](./05-diagnosis-and-review-templates.md)：单题、周复盘和面试表达模板。
 
-### 历史概要
+历史概要 `01`～`03` 仅保留背景参考，执行以本页链接的 v2 文档、当前日期日程和总账为准。
 
-以下文档保留作为早期总结，后续以 `knowledge-framework/` 和 `execution/` 为准：
+## 5. 知识编排原则
 
-- [`01-role-knowledge-map.md`](./01-role-knowledge-map.md)；
-- [`02-current-profile-and-gaps.md`](./02-current-profile-and-gaps.md)；
-- [`03-minimum-learning-roadmap.md`](./03-minimum-learning-roadmap.md)。
+所有主题统一按以下顺序推进：
 
-## 5. 学习状态标准
+```text
+真实问题 / 具体样例
+→ 最小实现或可观察现象
+→ 关键机制和不变量
+→ 失败模式与相邻概念
+→ 抽象模型与方案取舍
+→ 新场景迁移与面试表达
+```
+
+深度使用 D0～D4：
+
+- D0：定位真实断点；
+- D1：处理明确样例；
+- D2：解释机制；
+- D3：处理失败、比较方案和抽象；
+- D4：迁移到陌生问题、系统设计和真实面试。
+
+AI 不得跳过具体证据，直接用术语或高级讲解把主题标为掌握。
+
+## 6. 学习状态
 
 ```text
 TODO
@@ -88,23 +136,50 @@ TODO
 → INTERVIEW_READY
 ```
 
-阅读和观看课程最多进入 `LEARNING`。只有通过口述、独立编码、项目应用或模拟面试验收，才能继续升级。
+阅读最多进入 `LEARNING`。AI 生成的答案、代码或文档不能直接升级能力状态；升级必须有无辅助口述、独立代码、测试、项目应用或模拟面试证据。
 
-## 6. 执行原则
+## 7. 人机协作原则
 
-- 所有任务拆成 10～45 分钟的独立检查点；
-- 每次结束留下可以直接执行的下一步；
-- 算法首轮分析和编码不让 AI 直接生成答案；
-- 项目可以使用 AI Coding，但必须有人工作方案、测试、Diff 审查和失败验证；
-- 不按学习时长和刷题数评估，按可解释、可实现、可工程化和可面试评估；
-- 周末不承担强制任务，只作为休息或可选缓冲；
-- 模型、框架、协议和岗位要求等动态信息在投递前重新核验官方来源。
+```text
+人定义目标、首次推导、关键取舍和最终验收
++
+AI 负责诊断、提示、反例、执行低学习价值工作和反馈整理
+```
 
-## 7. 当前下一步
+AI 协作采用 A0～A4 援助等级和 `/tutor`、`/exam`、`/interview`、`/review`、`/build`、`/archive` 六种模式。具体规则见 [`AGENTS.md`](./AGENTS.md)。
 
-执行 [`execution/week-0-baseline-2026-08-03.md`](./execution/week-0-baseline-2026-08-03.md)，得到：
+每次 AI 协作必须留下：
 
-1. 算法六专题真实断点；
-2. 后端异步任务链路缺口；
-3. Agent Loop 概念与工程缺口；
-4. 下一周最多五个 P0 任务。
+1. 人独立完成与 AI 协助内容的区分；
+2. 仍待事实或测试核验的内容；
+3. 下一步第一动作；
+4. 至少一个未来的无 AI 验收或复测。
+
+## 8. 项目范围护栏
+
+首版项目只要求：
+
+```text
+前端输入
+→ 单一后端服务
+→ 文档检索
+→ 一个只读工具
+→ 模型回答与真实引用
+→ Trace
+→ 固定评测集
+```
+
+首版不默认建设 Java + Python 双服务，不默认引入 MQ、复杂 MCP、多 Agent、Rerank、Kubernetes 或拖拽工作流。
+
+## 9. 当前立即执行
+
+从当前日期日程开始，不再自行选择宽泛主题：
+
+1. 打开 [`schedule/calendar-2026-08-04-to-09-06.md`](./schedule/calendar-2026-08-04-to-09-06.md)；
+2. 检查 [`schedule/progress-ledger.md`](./schedule/progress-ledger.md) 的 `DUE`、`DOING` 和最多五个 P0；
+3. 根据当天容量选择一个主任务；
+4. 复制 [`schedule/daily-log-template.md`](./schedule/daily-log-template.md)；
+5. 完成、验收、更新证据与 D+1/D+3/D+7 复测；
+6. 周五使用 [`schedule/weekly-review-template.md`](./schedule/weekly-review-template.md) 调整下一周，不整体顺延未完成任务。
+
+当前第一动作：执行 `W0-D1-ALG-01`，从旧题中随机抽取滑动窗口、二分、单调栈各一题，关闭题解和 AI 提示，进行无标签诊断。
