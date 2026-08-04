@@ -5,11 +5,14 @@
 
 ## 文件
 
+- [`AGENTS.md`](./AGENTS.md)：算法教学强制规则；每次讲题必须先展示自包含题目卡，再进入苏格拉底式提问；
 - [`problem-bank.md`](./problem-bank.md)：按学习依赖排列的自有 LeetCode 题单、官方链接、角色和五周顺序；
 - [`reset-roadmap-2026-08-04.md`](./reset-roadmap-2026-08-04.md)：本轮从零重建路线，覆盖原日历中过早的无标签诊断；
 - [`attempt-ledger.md`](./attempt-ledger.md)：每次训练的原始记录、主要错因和 D+1/D+3/D+7；
 - 上级 [`../04-algorithm-training-system.md`](../04-algorithm-training-system.md)：训练方法、指标和 AI 使用边界；
 - [`../schedule/progress-ledger.md`](../schedule/progress-ledger.md)：跨领域总账，只记录汇总状态和到期复测。
+
+处理本目录中的任何算法教学或复测任务前，必须先读取本目录 `AGENTS.md` 和上级 `../AGENTS.md`。
 
 ## 当前策略
 
@@ -32,6 +35,7 @@
 
 - 题目：[`P0-01` 两数之和](https://leetcode.cn/problems/two-sum/)；
 - 模式：`/tutor` A1，卡住后最多 A2；
+- 开始时先按 [`AGENTS.md`](./AGENTS.md) 展示完整题目卡；
 - 先回答最直接的暴力方案和复杂度；
 - 再手算哈希表每一步保存的内容；
 - 最后用 Python 从空文件实现并写 3 个测试。
