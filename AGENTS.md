@@ -24,10 +24,12 @@ Before working anywhere under `autumn-recruitment/`, the Agent must read and fol
 
 1. [`autumn-recruitment/AGENTS.md`](./autumn-recruitment/AGENTS.md);
 2. [`autumn-recruitment/execution/zero-baseline-learning-policy.md`](./autumn-recruitment/execution/zero-baseline-learning-policy.md);
-3. [`autumn-recruitment/execution/time-budget-and-task-guardrails.md`](./autumn-recruitment/execution/time-budget-and-task-guardrails.md);
-4. the current dated schedule in `autumn-recruitment/schedule/`;
-5. [`autumn-recruitment/schedule/progress-ledger.md`](./autumn-recruitment/schedule/progress-ledger.md);
-6. the current daily log, if one exists.
+3. [`autumn-recruitment/execution/systematic-zero-baseline-teaching-policy.md`](./autumn-recruitment/execution/systematic-zero-baseline-teaching-policy.md);
+4. [`autumn-recruitment/execution/time-budget-and-task-guardrails.md`](./autumn-recruitment/execution/time-budget-and-task-guardrails.md);
+5. [`autumn-recruitment/schedule/systematic-zero-baseline-curriculum-2026-08-05-to-09-06.md`](./autumn-recruitment/schedule/systematic-zero-baseline-curriculum-2026-08-05-to-09-06.md);
+6. the current dated schedule in `autumn-recruitment/schedule/`;
+7. [`autumn-recruitment/schedule/progress-ledger.md`](./autumn-recruitment/schedule/progress-ledger.md);
+8. the current daily log, if one exists.
 
 The Agent must not operate only from conversation momentum or a single specialist file.
 
@@ -67,20 +69,43 @@ The following are not sufficient proof of mastery:
 
 Do not demand that the user prove existing ability when the current task is to learn from zero. Use job descriptions to derive learning modules, then create evidence through teaching, implementation, testing, and delayed retesting.
 
-## 5. Enforcement behavior
+## 5. Systematic teaching priority
+
+For autumn-recruitment learning tasks, an ordered curriculum takes priority over isolated diagnosis, terminology quizzes, diagrams, project outputs, or interview questions.
+
+When prerequisites are not yet taught, the Agent MUST:
+
+1. define the system map and the current lesson's place in it;
+2. teach the problem, minimal example, mechanism, failure modes, and adjacent concepts;
+3. let the user complete a local exercise after the explanation;
+4. use the original diagram, implementation, project, or interview task only as a lesson exercise;
+5. record the next curriculum node and delayed retest.
+
+The Agent MUST NOT:
+
+- ask the user to produce a complete system chain before teaching its components;
+- treat a sequence of concept-boundary questions as a substitute for a course;
+- keep asking obvious micro-questions after the error is already clear;
+- use unfamiliar terms without first defining them;
+- interpret “Socratic teaching” as refusing to explain missing foundational knowledge.
+
+A pretest may contain at most 1–3 meaningful questions and exists only to adjust pace. If the user lacks the prerequisite, teach it immediately.
+
+## 6. Enforcement behavior
 
 An Agent MUST NOT silently violate these guardrails.
 
-When a requested or inferred next action would exceed the budget, advance a future same-domain task, or displace another current-day pipeline, the Agent must do one of the following:
+When a requested or inferred next action would exceed the budget, advance a future same-domain task, displace another current-day pipeline, or skip required curriculum prerequisites, the Agent must do one of the following:
 
 - stop at the current reviewable checkpoint;
 - downgrade the next task;
 - record the displaced task and ask for an explicit override when necessary;
-- choose the smaller scope by default.
+- choose the smaller scope by default;
+- convert the requested output into a post-lesson exercise.
 
 Only the user's current explicit instruction may temporarily override a mandatory scheduling guardrail. The override applies only to the stated task or session and must be recorded in the daily log.
 
-## 6. Required end-of-task check
+## 7. Required end-of-task check
 
 Before declaring a task complete or starting another task, report or record:
 
@@ -92,6 +117,7 @@ Current deliverable:
 Remaining current-day pipelines:
 Next task source:
 Future same-domain task avoided:
+Curriculum prerequisite respected:
 Archive and ledger updated:
 ```
 
