@@ -4,6 +4,11 @@ on:
   pull_request:
     paths:
       - '.upload/resume-26-08-1505/ready'
+  push:
+    branches:
+      - main
+    paths:
+      - '.upload/resume-26-08-1505/ready'
 
 permissions:
   contents: write
