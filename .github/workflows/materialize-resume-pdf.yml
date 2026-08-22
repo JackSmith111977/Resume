@@ -26,9 +26,6 @@ jobs:
             .upload/resume-26-08-1505/chunk-01 \
             .upload/resume-26-08-1505/chunk-02 \
             .upload/resume-26-08-1505/chunk-03 \
-            .upload/resume-26-08-1505/chunk-04 \
-            .upload/resume-26-08-1505/chunk-05 \
-            .upload/resume-26-08-1505/chunk-06 \
             > /tmp/resume.b64
           base64 --decode /tmp/resume.b64 > versions/resume-26-08-1505.pdf
           echo "4894ac38fd6fe6aee7ccc5c96ca9195dcfa88f29c8055629d38eca66c9c080e2  versions/resume-26-08-1505.pdf" | sha256sum --check --strict
