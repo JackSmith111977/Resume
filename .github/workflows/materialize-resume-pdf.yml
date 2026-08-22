@@ -1,0 +1,32 @@
+name: Materialize Resume PDF
+
+on:
+  push:
+    paths:
+      - '.upload/resume-26-08-1505/ready'
+
+permissions:
+  contents: write
+
+jobs:
+  materialize:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Reconstruct PDF
+        shell: bash
+        run: |
+          cat .upload/resume-26-08-1505/chunk-* | base64 --decode > versions/resume-26-08-1505.pdf
+          echo "ae267bcf734456d9d51e409b72f60dcdbe9938145bc70775835fe362278b276a  versions/resume-26-08-1505.pdf" | sha256sum --check --strict
+          test "$(stat -c%s versions/resume-26-08-1505.pdf)" -eq 100937
+
+      - name: Commit release artifact
+        shell: bash
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          rm -rf .upload/resume-26-08-1505
+          git add versions/resume-26-08-1505.pdf .upload/resume-26-08-1505
+          git commit -m "resume: publish resume-26-08-1505 pdf"
+          git push
