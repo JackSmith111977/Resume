@@ -4,12 +4,14 @@
 
 > 当前求职方向：**AI 应用开发工程师 · 全栈开发工程师**
 
-## 当前发布版
+## 当前版本
 
-- Markdown：[`versions/resume-26-08-1506.md`](versions/resume-26-08-1506.md)
-- PDF：[`versions/resume-26-08-1506.pdf`](versions/resume-26-08-1506.pdf)
-- 规格：彩色单页 A4（210 × 297 mm）
-- 发布日期：2026-08-22
+- Markdown 内容源：[`versions/resume-26-08-1506.md`](versions/resume-26-08-1506.md)
+- 正式 PDF：当前尚未写入仓库
+- 本地最终产物：彩色单页 A4（210 × 297 mm）
+- 更新日期：2026-08-22
+
+> 说明：`resume-26-08-1506` 的内容已确认发布；PDF 只有在二进制文件完整上传并通过尺寸 / 可打开性校验后，才允许在这里标记为正式发布产物。禁止保留截断或损坏的 PDF。
 
 `resume.md` 为仓库早期历史版本，仅用于追溯，不作为当前投递版本。
 
@@ -19,9 +21,9 @@
 Resume/
 ├── README.md                  # 仓库入口、当前版本指针与管理规则
 ├── resume.md                  # 早期历史版本，仅保留追溯
-└── versions/                  # 正式发布版本，不可覆盖
+└── versions/                  # 正式版本历史，不可覆盖
     ├── resume-yy-mm-dddd.md   # Markdown 内容源
-    └── resume-yy-mm-dddd.pdf  # 对应正式投递 PDF
+    └── resume-yy-mm-dddd.pdf  # 对应正式投递 PDF（仅完整校验后写入）
 ```
 
 ## 版本命名
@@ -32,14 +34,14 @@ Resume/
 resume-yy-mm-dddd
 ```
 
-同一发布版本的 Markdown 与 PDF 必须使用相同版本号，例如：
+同一发布版本的 Markdown 与 PDF 使用相同版本号，例如：
 
 ```text
 resume-26-08-1506.md
 resume-26-08-1506.pdf
 ```
 
-每次独立发布都创建新版本。**禁止通过覆盖旧文件更新简历。**
+每次独立发布都创建新版本。**禁止通过覆盖旧版本更新简历。**
 
 ## 管理规则
 
@@ -52,10 +54,10 @@ resume-26-08-1506.pdf
 
 ### 2. 发布版本不可覆盖
 
-- `versions/resume-yy-mm-dddd.*` 一经发布即视为不可变历史记录。
+- `versions/resume-yy-mm-dddd.*` 一经完整发布即视为不可变历史记录。
 - 后续即使只修改文字、样式或排版，也必须创建新的版本号。
-- 不修改、不替换、不删除历史发布版本，除非明确执行事实纠错或仓库清理。
-- README 的“当前发布版”始终指向最新明确确认的版本。
+- 不修改、不替换、不删除历史发布版本，除非是明确的事实纠错、损坏文件修复或仓库清理。
+- README 的“当前版本”始终指向最新明确确认的内容版本。
 
 ### 3. Markdown 与 PDF 职责分离
 
@@ -72,6 +74,7 @@ resume-26-08-1506.pdf
 - 优先单页，但不得通过过小字号牺牲可读性。
 - 使用专业、克制的配色与视觉层级，兼顾 ATS 与人工阅读。
 - 发布前检查中文字体、链接、分页、裁切、重叠、联系方式及导出尺寸。
+- 上传后必须再次确认文件可打开、文件大小合理且不是截断产物。
 - “转正实习”等重要事实可以通过 Badge / 标签强化，但不得改变事实含义。
 
 ### 5. 内容治理原则
@@ -88,7 +91,7 @@ resume-26-08-1506.pdf
 允许长期保存：
 
 - 已确认发布的 Markdown 简历。
-- 与该版本一致的正式 PDF。
+- 与该版本一致、并通过完整性检查的正式 PDF。
 - README 与必要的版本治理文档。
 
 默认不保存：
@@ -113,9 +116,11 @@ Draft
   ↓
 创建新的版本号
   ↓
-提交 Markdown + PDF
+提交 Markdown
   ↓
-更新 README 当前发布版
+上传并校验 PDF 完整性
+  ↓
+更新 README 当前版本
 ```
 
 发布前至少确认：
@@ -127,6 +132,7 @@ Draft
 - [ ] 技能与经历能够相互印证
 - [ ] Markdown 与 PDF 事实内容一致
 - [ ] PDF 为严格 A4 且无裁切、重叠、字体异常
+- [ ] GitHub 中的 PDF 可正常打开且文件大小合理
 - [ ] 未包含敏感或不应公开的信息
 - [ ] 新发布未覆盖任何历史版本
 
@@ -139,14 +145,15 @@ resume: publish resume-26-08-1506 source
 resume: publish resume-26-08-1506 PDF
 docs: update resume repository governance
 fix: correct resume-xx-xx-xxxx metadata
+fix: remove truncated resume-xx-xx-xxxx PDF
 ```
 
 - `resume:`：正式版本发布。
 - `docs:`：README / 仓库治理规则调整。
-- `fix:`：仅用于明确的事实或元数据纠错。
+- `fix:`：明确的事实、元数据或损坏产物修复。
 
 ## 核心原则
 
 这个仓库不是覆盖式的“最新简历文件夹”，而是一个**可追溯的简历 Release 历史**：
 
-> **Draft 留在工作区，Release 才进入 GitHub；历史版本保持不变，README 只负责指向当前正式版。**
+> **Draft 留在工作区，Release 才进入 GitHub；历史版本保持不变，README 只负责指向当前正式状态。**
