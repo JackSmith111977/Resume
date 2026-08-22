@@ -1,9 +1,7 @@
 name: Materialize Resume PDF
 
 on:
-  push:
-    branches:
-      - main
+  pull_request:
     paths:
       - '.upload/resume-26-08-1505/ready'
 
