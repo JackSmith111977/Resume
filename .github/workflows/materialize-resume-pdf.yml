@@ -1,7 +1,9 @@
 name: Materialize Resume PDF
 
 on:
-  pull_request:
+  push:
+    branches:
+      - main
     paths:
       - '.upload/resume-26-08-1505/ready'
 
@@ -19,20 +21,18 @@ jobs:
       - name: Reconstruct PDF
         shell: bash
         run: |
-          echo "chunk-00 $(sha256sum .upload/resume-26-08-1505/chunk-00 | cut -d' ' -f1)"
-          echo "chunk-01 $(sha256sum .upload/resume-26-08-1505/chunk-01 | cut -d' ' -f1)"
-          echo "chunk-02 $(sha256sum .upload/resume-26-08-1505/chunk-02 | cut -d' ' -f1)"
-          echo "chunk-03-first20k $(head -c 20000 .upload/resume-26-08-1505/chunk-03 | sha256sum | cut -d' ' -f1)"
-          echo "chunk-04 $(sha256sum .upload/resume-26-08-1505/chunk-04 | cut -d' ' -f1)"
-          echo "chunk-05 $(sha256sum .upload/resume-26-08-1505/chunk-05 | cut -d' ' -f1)"
-          echo "chunk-06 $(sha256sum .upload/resume-26-08-1505/chunk-06 | cut -d' ' -f1)"
-          cat .upload/resume-26-08-1505/chunk-00 .upload/resume-26-08-1505/chunk-01 .upload/resume-26-08-1505/chunk-02 > /tmp/resume.b64
-          head -c 20000 .upload/resume-26-08-1505/chunk-03 >> /tmp/resume.b64
-          cat .upload/resume-26-08-1505/chunk-04 .upload/resume-26-08-1505/chunk-05 .upload/resume-26-08-1505/chunk-06 >> /tmp/resume.b64
+          cat \
+            .upload/resume-26-08-1505/chunk-00 \
+            .upload/resume-26-08-1505/chunk-01 \
+            .upload/resume-26-08-1505/chunk-02 \
+            .upload/resume-26-08-1505/chunk-03 \
+            .upload/resume-26-08-1505/chunk-04 \
+            .upload/resume-26-08-1505/chunk-05 \
+            .upload/resume-26-08-1505/chunk-06 \
+            > /tmp/resume.b64
           base64 --decode /tmp/resume.b64 > versions/resume-26-08-1505.pdf
-          echo "reconstructed $(sha256sum versions/resume-26-08-1505.pdf | cut -d' ' -f1) $(stat -c%s versions/resume-26-08-1505.pdf)"
-          echo "ae267bcf734456d9d51e409b72f60dcdbe9938145bc70775835fe362278b276a  versions/resume-26-08-1505.pdf" | sha256sum --check --strict
-          test "$(stat -c%s versions/resume-26-08-1505.pdf)" -eq 100937
+          echo "4894ac38fd6fe6aee7ccc5c96ca9195dcfa88f29c8055629d38eca66c9c080e2  versions/resume-26-08-1505.pdf" | sha256sum --check --strict
+          test "$(stat -c%s versions/resume-26-08-1505.pdf)" -eq 98791
 
       - name: Commit release artifact
         shell: bash
