@@ -130,7 +130,7 @@ jobs:
           </html>
           HTML
 
-          weasyprint /tmp/resume.html versions/resume-26-09-0701.pdf
+          weasyprint --pdf-variant=pdf/ua-1 /tmp/resume.html versions/resume-26-09-0701.pdf
           pdfinfo versions/resume-26-09-0701.pdf
           pdffonts versions/resume-26-09-0701.pdf
           pdftotext -layout versions/resume-26-09-0701.pdf /tmp/resume.txt
