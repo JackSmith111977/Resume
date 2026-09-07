@@ -6,13 +6,12 @@
 
 ## 当前版本
 
-- Markdown 内容源：[`versions/resume-26-08-1506.md`](versions/resume-26-08-1506.md)
-- 正式 PDF：[`versions/resume-26-08-1506.pdf`](versions/resume-26-08-1506.pdf)
-- 规格：彩色单页 A4（210 × 297 mm）
-- 内容版本日期：2026-08-22
-- PDF 补全日期：2026-09-05
+- Markdown 内容源：[`versions/resume-26-09-0701.md`](versions/resume-26-09-0701.md)
+- 正式 PDF：[`versions/resume-26-09-0701.pdf`](versions/resume-26-09-0701.pdf)
+- 规格：**ATS 友好单列 · 彩色单页 A4（210 × 297 mm）**
+- 发布日期：2026-09-07
 
-> 说明：`resume-26-08-1506` 的 Markdown 与 PDF 已完整写入仓库；PDF 已完成单页 A4、可打开性与渲染检查。
+> 说明：`resume-26-09-0701` 沿用上一版已确认的事实内容，本次主要重构 PDF 信息结构与排版，使其同时适配人工阅读与简历自动解析。正式 PDF 已完成单页 A4、可打开性、字体嵌入、Tagged PDF、关键字段抽取及章节阅读顺序检查。
 
 `resume.md` 为仓库早期历史版本，仅用于追溯，不作为当前投递版本。
 
@@ -38,8 +37,8 @@ resume-yy-mm-dddd
 同一发布版本的 Markdown 与 PDF 使用相同版本号，例如：
 
 ```text
-resume-26-08-1506.md
-resume-26-08-1506.pdf
+resume-26-09-0701.md
+resume-26-09-0701.pdf
 ```
 
 每次独立发布都创建新版本。**禁止通过覆盖旧版本更新简历。**
@@ -74,9 +73,14 @@ resume-26-08-1506.pdf
 - 页面尺寸严格为 **A4（210 × 297 mm）**。
 - 优先单页，但不得通过过小字号牺牲可读性。
 - 使用专业、克制的配色与视觉层级，兼顾 ATS 与人工阅读。
+- **优先采用单列正文阅读流**；避免侧栏、多栏、浮动文本框及承载核心信息的复杂表格，防止自动解析时出现内容交错。
+- 姓名、联系方式、教育、技能、实习、项目、奖项等核心字段必须存在于真实文本层中，不以图标、图片或纯装饰元素代替文字。
+- 中文字体应完整嵌入；生成工具支持时优先输出 **Tagged PDF / PDF-UA**，提升结构化读取兼容性。
+- 视觉设计优先通过字体层级、留白、颜色和分隔线实现，不应改变正文的机器阅读顺序。
 - 发布前检查中文字体、链接、分页、裁切、重叠、联系方式及导出尺寸。
+- 发布前至少进行一次机器文本抽取验证；确认章节顺序稳定，并能够完整抽取姓名、电话、邮箱、学校、公司、项目及关键奖项等字段。
 - 上传后必须再次确认文件可打开、文件大小合理且不是截断产物。
-- “转正实习”等重要事实可以通过 Badge / 标签强化，但不得改变事实含义。
+- “转正实习”等重要事实可以通过文字标签强化，但不得改变事实含义或依赖机器难以识别的纯视觉 Badge。
 
 ### 5. 内容治理原则
 
@@ -115,6 +119,8 @@ Draft
   ↓
 生成并检查 A4 PDF
   ↓
+执行 ATS / 文本抽取验证
+  ↓
 创建新的版本号
   ↓
 提交 Markdown
@@ -133,6 +139,9 @@ Draft
 - [ ] 技能与经历能够相互印证
 - [ ] Markdown 与 PDF 事实内容一致
 - [ ] PDF 为严格 A4 且无裁切、重叠、字体异常
+- [ ] PDF 正文为稳定的单列机器阅读流，章节不会交错
+- [ ] 姓名、电话、邮箱、学校、公司、项目及奖项等核心字段可被文本解析器完整抽取
+- [ ] 中文字体已嵌入；生成工具支持时 PDF 为 Tagged PDF / PDF-UA
 - [ ] GitHub 中的 PDF 可正常打开且文件大小合理
 - [ ] 未包含敏感或不应公开的信息
 - [ ] 新发布未覆盖任何历史版本
@@ -142,9 +151,9 @@ Draft
 推荐使用：
 
 ```text
-resume: publish resume-26-08-1506 source
-resume: publish resume-26-08-1506 PDF
-docs: update resume repository governance
+resume: publish resume-26-09-0701 source
+resume: publish resume-26-09-0701 PDF
+docs: update ATS-friendly resume governance
 fix: correct resume-xx-xx-xxxx metadata
 fix: remove truncated resume-xx-xx-xxxx PDF
 ```
